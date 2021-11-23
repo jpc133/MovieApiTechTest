@@ -60,7 +60,7 @@ namespace MovieApiTechTest
             foreach (var movie in latestMetadataForStatsLanguage)
             {
                 List<MovieWatch> movieWatches = MovieWatches.Where(x => x.MovieId == movie.MovieId).ToList();
-                movieStats.Add(new MovieStats(movie.MovieId, movie.Title, (int)movieWatches.Average(x => x.WatchDurationMs), movieWatches.Count, movie.ReleaseYear ?? 0));
+                movieStats.Add(new MovieStats(movie.MovieId, movie.Title, movieWatches.Count == 0 ? 0 : (int)movieWatches.Average(x => x.WatchDurationMs), movieWatches.Count, movie.ReleaseYear ?? 0));
             }
 
             return movieStats;
