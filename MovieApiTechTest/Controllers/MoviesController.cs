@@ -16,6 +16,7 @@ namespace MovieApiTechTest.Controllers
 
 
         [Route("stats")]
+        [Produces("application/json")]
         public IActionResult Stats()
         {
             return new OkObjectResult(MovieDatabase.GetMovieStats().OrderByDescending(x=>x.Watches).ThenByDescending(x=>x.ReleaseYear));
