@@ -38,7 +38,7 @@ namespace MovieApiTechTest
         public void AddMetaData(Movie movie)
         {
             Movies.Add(movie);
-            movie.Id = Movies.IndexOf(movie); //Essentially autoincrement Id
+            movie.Id = Movies.Max(x => x.Id) + 1;
         }
 
         /// <summary>
