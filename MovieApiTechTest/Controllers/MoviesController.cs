@@ -5,7 +5,7 @@ namespace MovieApiTechTest.Controllers
 {
     [ApiController]
     [Route("movies")]
-    public class MoviesController : Controller
+    public class MoviesController : ControllerBase
     {
         private readonly MovieDatabase MovieDatabase;
 

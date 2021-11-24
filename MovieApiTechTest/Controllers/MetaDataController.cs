@@ -7,7 +7,7 @@ namespace MovieApiTechTest.Controllers
 {
     [ApiController]
     [Route("metadata")]
-    public class MetaDataController : Controller
+    public class MetaDataController : ControllerBase
     {
         private readonly MovieDatabase MovieDatabase;
 
