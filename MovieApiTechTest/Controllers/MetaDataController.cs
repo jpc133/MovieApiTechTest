@@ -18,7 +18,7 @@ namespace MovieApiTechTest.Controllers
 
         [HttpPost]
         [Consumes("application/json")]
-        public IActionResult Index([FromBody]Movie movie)
+        public IActionResult Post([FromBody]Movie movie)
         {
             MovieDatabase.AddMetaData(movie);
             return new OkResult();
@@ -27,7 +27,7 @@ namespace MovieApiTechTest.Controllers
         [HttpGet]
         [Route("{movieId}")]
         [Produces("application/json")]
-        public IActionResult Index(int movieId)
+        public IActionResult Get(int movieId)
         {
             List<Movie> movies = MovieDatabase.GetLatestMetaData(movieId);
             if (movies == null || movies.Count == 0)
