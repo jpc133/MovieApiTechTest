@@ -5,6 +5,8 @@ using System.Linq;
 
 namespace MovieApiTechTest.Controllers
 {
+    [ApiController]
+    [Route("metadata")]
     public class MetaDataController : Controller
     {
         private readonly MovieDatabase MovieDatabase;
@@ -15,7 +17,6 @@ namespace MovieApiTechTest.Controllers
         }
 
         [HttpPost]
-        [Route("metadata/")]
         public IActionResult Index([FromBody]Movie movie)
         {
             MovieDatabase.AddMetaData(movie);
@@ -23,7 +24,7 @@ namespace MovieApiTechTest.Controllers
         }
 
         [HttpGet]
-        [Route("metadata/{movieId}")]
+        [Route("{movieId}")]
         public IActionResult Index(int movieId)
         {
             List<Movie> movies = MovieDatabase.GetLatestMetaData(movieId);

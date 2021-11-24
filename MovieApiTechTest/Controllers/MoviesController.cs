@@ -3,6 +3,8 @@ using System.Linq;
 
 namespace MovieApiTechTest.Controllers
 {
+    [ApiController]
+    [Route("movies")]
     public class MoviesController : Controller
     {
         private readonly MovieDatabase MovieDatabase;
@@ -13,7 +15,7 @@ namespace MovieApiTechTest.Controllers
         }
 
 
-        [Route("movies/stats")]
+        [Route("stats")]
         public IActionResult Stats()
         {
             return new OkObjectResult(MovieDatabase.GetMovieStats().OrderByDescending(x=>x.Watches).ThenByDescending(x=>x.ReleaseYear));
